@@ -1,11 +1,9 @@
 
-
 class Task
  def initialize (title, description)
    @title = title
    @description = description
    @done = false
-
  end
 
  def title
@@ -43,7 +41,7 @@ class Task
 
 end
 
-# 
+#
 # task1 =Task.new("get apples", "red apples only")
 #
 # p task1
