@@ -53,12 +53,15 @@ while i < 5 do
   i += 1
 end
 
-# p taskList1
-# p taskList1.completedTasks
-# p "=============================="
-# p taskList1.getTaskList
-# p "=============================="
-# # p taskList1.incompleteTasks
+p taskList1
+p taskList1.completedTasks
+p "=============================="
+p taskList1.getTaskList
+p "=============================="
+p taskList1.incompleteTasks
+p "++++++++++++++++++++++++++++++"
+p taskList1.getTaskList
+
 
 
 # myList = Tasklist.new("myList")

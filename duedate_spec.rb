@@ -14,10 +14,13 @@ describe "DueDateTask" do
   end
 
   it "has a date" do
+
     expect(due_date_task.date).to be_a Date
   end
 
 end
+
+
   # Story: As a developer, I can create a DueDateTask, which is-a Task that has-a due date.
   # Hint: Use the built-in Ruby Date class
   #
