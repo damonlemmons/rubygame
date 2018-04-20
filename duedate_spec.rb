@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative 'rubytasklist'
-require_relative 'rubytask'
+# require_relative 'rubytasklist'
+# require_relative 'rubytask'
 require_relative 'duedate'
 require 'date'
 
@@ -16,6 +16,10 @@ describe "DueDateTask" do
   it "has a date" do
 
     expect(due_date_task.date).to be_a Date
+  end
+
+  it "can display a task with a due date" do
+    expect(due_date_task.due_date).to be_a String
   end
 
 end

@@ -31,7 +31,6 @@ class Task
  end
 
  def getTaskStatus
-
    if @done
      return "Done"
    else

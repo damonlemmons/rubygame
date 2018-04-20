@@ -1,6 +1,7 @@
 require 'rspec'
 require_relative 'rubytasklist'
 require_relative 'rubytask'
+require_relative 'duedate'
 
 # Story: As a developer, I can add all of my Tasks to a TaskList.
 # Hint: A TaskList has-many Tasks
@@ -9,7 +10,7 @@ require_relative 'rubytask'
 
 describe "Tasklist" do
   my_tasklist = Tasklist.new("Grocery List")
-
+# due_date_task = DueDateTask.new("walk dog", "take outside", Date.new(2018, 12, 25) )
   taskList1 = Tasklist.new("Testcase 1")
 
   i = 0
@@ -48,5 +49,16 @@ describe "Tasklist" do
   it "can get the incomplete tasks" do
    expect(taskList1.incompleteTasks.length).to be > 0
   end
+
+  it "can add a due date Task to tasklist" do
+    walk_dog = DueDateTask.new("walk dog", "take outside", Date.new(2018, 12, 25))
+    taskList1.addDueDateTask(walk_dog)
+    expect(taskList1.getTaskList.length).to be > 0
+  end
+
+  # it "can display undone tasks due today" do
+  #   walk_cat = DueDateTask.new("walk cat", "take cat outside", Date.new(2018, 4, 20))
+  #   expect(taskList1.addDueDateTask(walk_cat).urgentTasks.length).to eq 1
+  # end
 
 end

@@ -1,4 +1,6 @@
 require_relative 'rubytask'
+require_relative 'duedate'
+require 'date'
 
 class Tasklist
 
@@ -19,6 +21,10 @@ class Tasklist
    @taskList << task
  end
 
+ def addDueDateTask (task)
+   @taskList << task
+ end
+
  def getTaskList
    @taskList
  end
@@ -31,11 +37,17 @@ class Tasklist
 
  def incompleteTasks
     returnArray = @taskList.select do |task|
-      p task
       task.getTaskStatus == "Undone"
     end
   end
 
+  def urgentTasks
+    returnArray = @taskList.select do |task|
+      task.getTaskStatus == "Undone" && task.date == Date.today
+    end
+  end
+
+  # urgentArray
 end
 
 taskList1 = Tasklist.new("Testcase 1")
@@ -53,14 +65,28 @@ while i < 5 do
   i += 1
 end
 
+walk_dog = DueDateTask.new("walk dog", "take outside", Date.new(2018, 12, 25))
+taskList1.addDueDateTask(walk_dog)
+p "===================================="
 p taskList1
-p taskList1.completedTasks
-p "=============================="
-p taskList1.getTaskList
-p "=============================="
-p taskList1.incompleteTasks
-p "++++++++++++++++++++++++++++++"
-p taskList1.getTaskList
+
+walk_cat = DueDateTask.new("walk cat", "take cat outside", Date.new(2018, 4, 20))
+taskList1.addDueDateTask(walk_cat)
+
+p taskList1.urgentTasks
+
+
+
+# p taskList1.completedTasks
+# p "=============================="
+# p taskList1.getTaskList
+# p "=============================="
+# p taskList1.incompleteTasks
+# p "++++++++++++++++++++++++++++++"
+# p taskList1.getTaskList
+
+
+
 
 
 
